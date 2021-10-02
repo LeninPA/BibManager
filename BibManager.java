@@ -1,6 +1,29 @@
 import java.util.ArrayList;
 //since we're making it simple, arraylists should be fine, right?
 import java.util.Scanner;
+
+// Creation of a reference class from which to improve
+class Reference {
+	String id, authorName, authorSurname, src, date, title;
+	//Constructor
+	Reference (String authName,String authSurname,String source,String yearMonthDay, String tit){
+		authorName = authName;
+		authorSurname = authSurname;
+		src = source;
+		date = yearMonthDay;
+		title = tit;
+		id = "";
+	}
+	String print (){
+		// TODO: Initials of author
+		if(this.authorName.equals("")) {
+			return this.authorSurname + ", " + this.authorName + "(" + this.date + "). " + this.title + ". " + this.src;
+		} else {
+			return this.title + "(" + this.date + "). " + this.src;
+		}
+	}
+}
+
 public class BibManager {
 
 	public static void main(String[] args) {
@@ -12,30 +35,30 @@ public class BibManager {
 		String title = ""; //more variables to be added
 		
 		do {
-		displaymenu(); //call the menu
-		xyz = scan.nextLine(); //scans user input
-		if (xyz.length() > 0) { //takes the user input and validates it
-			option = xyz.charAt(0); //if more than one items are entered than the first character is implemented
-		}
-		else { option = ' '; }
-		switch (option) {
-		case 'A' : //Add a new entry
-			println("Title:");// print and ask user for details about the entry they are making, name, author, date, etc
-			title = scanInside.nextLine(); //store it in variable and so on
-			//once the user has completed the entry, use toString method to compile their responses in APA format and store it in arraylist
-		case 'B' : //Search
-			//not sure how to implement a search, might have to do it after arraylist is implemented
-		case 'C' : //Export
-			//put off until everything else is done
-		case 'D' : //View all
-			//
-		case 'E' : //quit
-			println("Byeee!");
-			break;
-		default: //in case the user inputs something other than the mentioned options
-			println("Please enter a valid option!");
-			break;
-		}
+			displaymenu(); //call the menu
+			xyz = scan.nextLine(); //scans user input
+			if (xyz.length() > 0) { //takes the user input and validates it
+				option = xyz.charAt(0); //if more than one items are entered than the first character is implemented
+			}
+			else { option = ' '; }
+			switch (option) {
+				case 'A' : //Add a new entry
+					println("Title:");// print and ask user for details about the entry they are making, name, author, date, etc
+					title = scanInside.nextLine(); //store it in variable and so on
+					//once the user has completed the entry, use toString method to compile their responses in APA format and store it in arraylist
+				case 'B' : //Search
+					//not sure how to implement a search, might have to do it after arraylist is implemented
+				case 'C' : //Export
+					//put off until everything else is done
+				case 'D' : //View all
+					//
+				case 'E' : //quit
+					println("Byeee!");
+					break;
+				default: //in case the user inputs something other than the mentioned options
+					println("Please enter a valid option!");
+					break;
+			}
 		
 		
 		} while (option != 'E');
@@ -55,9 +78,9 @@ public class BibManager {
 	private static void println(String s) {
 		System.out.println(s); //to make life easier and not type too much
 	}
-	public String toString() {
-		return "";
-		//toString method with APA format
-	}
+//	public String toString() {
+//		return "";
+//		//toString method with APA format
+//	}
 
 }
